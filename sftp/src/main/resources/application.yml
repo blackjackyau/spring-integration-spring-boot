@@ -1,0 +1,14 @@
+#
+# Copyright (c) Experian, 2018. All rights reserved.
+#
+
+server:
+  servlet:
+    context-path: /v0
+  port: 8080
+
+sftp:
+  host: docker.vm
+  user: foo
+  password: bar
+  port: 2222
