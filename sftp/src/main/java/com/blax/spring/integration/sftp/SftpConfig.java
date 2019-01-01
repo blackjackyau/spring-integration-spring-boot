@@ -1,6 +1,7 @@
 package com.blax.spring.integration.sftp;
 
 import com.jcraft.jsch.ChannelSftp;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.beans.factory.annotation.Value;
@@ -74,6 +75,7 @@ public class SftpConfig {
         SftpOutboundGateway sftpOutboundGateway =
                 new SftpOutboundGateway(sftpSessionFactory(), "mget", "payload.remote()");
         sftpOutboundGateway.setLocalDirectoryExpressionString("payload.local()");
+        sftpOutboundGateway.setAutoCreateLocalDirectory(true);
         return sftpOutboundGateway;
     }
 
@@ -98,6 +100,7 @@ public class SftpConfig {
 
     @Data
     @Accessors(fluent = true)
+    @AllArgsConstructor
     public static class DirectoryEntry {
         private String local;
         private String remote;
